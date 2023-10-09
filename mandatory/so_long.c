@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:48:22 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/08 11:57:38 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/09 11:41:51 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		return 0;
+		return (0);
+	
 }

@@ -18,7 +18,7 @@ OBJ_DIR = 		obj_files
 
 OBJS = 			$(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
 
-LIBFT = 		assets/libft/libft.a
+LIBFT = 		utils/libft/libft.a
 
 NAME = 			so_long
 
@@ -26,28 +26,32 @@ NAME = 			so_long
 ###### RULES #######################################
 
 
-all: $(OBJ_DIR) $(NAME)
+all: mlx $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(OBJS) $(LIBFT) -o $@
+	$(CC) $(OBJS) $(LIBFT) -L./minilibx-linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $@
 
 $(LIBFT):
-	cd assets/libft && make
+	cd utils/libft && make
 
 $(OBJ_DIR)/%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I/usr/include -I./minilibx-linux/ -c $< -o $@
+
+mlx:
+	cd minilibx-linux && make
 
 clean:
 	rm -rf $(OBJ_DIR)
-	cd assets/libft && make clean
+	cd utils/libft && make clean
+	cd minilibx-linux && make clean
 
 fclean: clean
 	rm -rf $(NAME)
-	cd assets/libft && rm -rf libft.a
+	cd utils/libft && rm -rf libft.a
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re mlx
