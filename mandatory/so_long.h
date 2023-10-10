@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/09 11:32:20 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/10 12:47:12 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-# include "../assets/libft/libft.h"
+# include "../utils/libft/libft.h"
 # include "../minilibx-linux/mlx.h"
 
 #endif
