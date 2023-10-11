@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:58:21 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 13:44:29 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:48:15 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ char	**file_manager(char *arg)
 	if (ber_check(arg) == 1)
 		return (NULL);
 	fd = open(arg, O_RDONLY);
-	fd = -1;
 	if (fd == -1)
 		return (NULL);
 	map = malloc((nofline_calculator(fd) + 1) * sizeof(char *));
