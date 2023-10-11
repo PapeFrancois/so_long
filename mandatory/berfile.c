@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:58:21 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 13:48:15 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:01:21 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	nofline_calculator(int fd)
 		nofline++;
 		str = get_next_line(fd);
 	}
+	printf("nofline = %d\n", nofline);
 	return (nofline);
 }
 
@@ -79,13 +80,17 @@ char	**file_manager(char *arg)
 {
 	char	**map;
 	int		fd;
+	int		nofline;
 
 	if (ber_check(arg) == 1)
 		return (NULL);
 	fd = open(arg, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	map = malloc((nofline_calculator(fd) + 1) * sizeof(char *));
+	map = NULL;
+	nofline = nofline_calculator(fd);
+	if (nofline > 0)
+		map = malloc((nofline + 1) * sizeof(char *));
 	close(fd);
 	if (!map)
 		return (NULL);

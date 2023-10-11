@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 13:14:07 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/11 15:47:50 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 int		strlen_wo_newline(char *str);
 char	*strcpy_wo_newline(char *dst, const char *src);
 char	**file_manager(char *arg);
+int		parsing_manager(char **map);
+void	graphic();
 
 #endif

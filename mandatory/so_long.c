@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:48:22 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 13:51:19 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:02:27 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,14 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		return (0);
 	map = file_manager(argv[1]);
-	if (map)
-		free_table(map);
+	if (!map)
+		return (0);
+	// if (parsing_manager(map) == 1)
+	// {
+	// 	ft_printf("error : the map's format is incorrect\n");
+	// 	return (0);
+	// }
+	graphic();
+	free_table(map);
 	return (0);
 }

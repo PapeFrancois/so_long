@@ -6,7 +6,9 @@ SRCS =			so_long.c \
 				berfile.c \
 				berfile2.c \
 				get_next_line.c \
-				get_next_line_utils.c
+				get_next_line_utils.c \
+				parsing.c \
+				graphic.c
 
 
 ###### VARIABLES ####################################
