@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/10 12:47:12 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/11 13:14:07 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include "../utils/libft/libft.h"
+# include "../utils/get_next_line/get_next_line.h"
 # include "../minilibx-linux/mlx.h"
+
+int		strlen_wo_newline(char *str);
+char	*strcpy_wo_newline(char *dst, const char *src);
+char	**file_manager(char *arg);
 
 #endif

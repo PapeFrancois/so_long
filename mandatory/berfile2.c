@@ -1,46 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   berfile2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 11:58:21 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/08 12:13:53 by hepompid         ###   ########.fr       */
+/*   Created: 2023/10/11 13:02:54 by hepompid          #+#    #+#             */
+/*   Updated: 2023/10/11 13:15:36 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	ber_check(char *a)
+int	strlen_wo_newline(char *str)
 {
 	int	i;
 
-	i = ft_strlen(a);
-	if (i <= 4)
+	i = 0;
+	if (str[i] == '\n')
 		return (1);
-	i--;
-	if (a[i] != 'r' || a[i - 1] != 'e' || a[i - 2] != 'b' || a[i - 3] != '.')
-		return (1);
-	return (0);
+	while (str[i] && str[i] != '\n')
+		i++;
+	return (i);
 }
 
-int	nofline_calculator(char *arg)
+char	*strcpy_wo_newline(char *dst, const char *src)
 {
-	int		fd;
-	int		nofline;
-	char	*str;
+	int	i;
 
-	fd = open(arg, O_RDONLY);
-	if (fd == -1)
+	i = 0;
+	if (src[i] == '\n')
 	{
-		perror("open");
-		exit (0);
+		dst[i] = '\n';
+		i++;
 	}
-}
-
-char	**parsing(char *arg)
-{
-	char	**map;
-	int		fd;
+	while (src[i] && src[i] != '\n')
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
 }

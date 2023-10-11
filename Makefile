@@ -2,7 +2,11 @@
 ###### SOURCES ######################################
 
 
-SRCS =			so_long.c
+SRCS =			so_long.c \
+				berfile.c \
+				berfile2.c \
+				get_next_line.c \
+				get_next_line_utils.c
 
 
 ###### VARIABLES ####################################
@@ -12,7 +16,7 @@ CC = 			cc
 
 CFLAGS = 		-Wall -Wextra -Werror
 
-VPATH = 		mandatory/
+VPATH = 		mandatory/:utils/get_next_line/
 
 OBJ_DIR = 		obj_files
 
