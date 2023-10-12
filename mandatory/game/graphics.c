@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:07:40 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 17:47:14 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:49:46 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	print_map(t_game game, t_img img)
 		while (game.map[i][j])
 		{
 			if (game.map[i][j] == '0')
-				mlx_put_image_to_window(game.mlx, game.mlx_win,img.empty, j * 64, i * 64);
+				mlx_put_image_to_window(game.mlx, game.mlx_win, img.empty, j * 64, i * 64);
 			if (game.map[i][j] == '1')
 				mlx_put_image_to_window(game.mlx, game.mlx_win, img.wall, j * 64, i * 64);
 			if (game.map[i][j] == 'P')
