@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:58:21 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 16:01:21 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:48:33 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,14 @@ int	ber_check(char *a)
 		return (1);
 	i--;
 	if (a[i] != 'r' || a[i - 1] != 'e' || a[i - 2] != 'b' || a[i - 3] != '.')
+	{
+		ft_printf("error: the map must have the .ber extention\n");
 		return (1);
+	}
 	return (0);
 }
 
-int	nofline_calculator(int fd)
+char	**map_creator(int fd, char **map)
 {
 	int		nofline;
 	char	*str;
@@ -38,8 +41,11 @@ int	nofline_calculator(int fd)
 		nofline++;
 		str = get_next_line(fd);
 	}
-	printf("nofline = %d\n", nofline);
-	return (nofline);
+	if (nofline > 0)
+		map = malloc((nofline + 1) * sizeof(char *));
+	else
+		ft_printf("error: the map is empty\n");
+	return (map);
 }
 
 void	malloc_failure(char **map, int i, int fd, char *str)
@@ -76,21 +82,19 @@ char	**fill_map(int fd, char **map)
 	return (map);
 }
 
-char	**file_manager(char *arg)
+char	**file_manager(char *arg, char **map)
 {
-	char	**map;
 	int		fd;
-	int		nofline;
 
 	if (ber_check(arg) == 1)
 		return (NULL);
 	fd = open(arg, O_RDONLY);
 	if (fd == -1)
+	{
+		perror("open");
 		return (NULL);
-	map = NULL;
-	nofline = nofline_calculator(fd);
-	if (nofline > 0)
-		map = malloc((nofline + 1) * sizeof(char *));
+	}
+	map = map_creator(fd, map);
 	close(fd);
 	if (!map)
 		return (NULL);

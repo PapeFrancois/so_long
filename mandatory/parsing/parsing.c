@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:52:32 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 15:16:14 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 10:58:55 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ int	wall_surrounded_checker(char **map)
 
 	i = 0;
 	siz = 0;
-	while (map[siz])
+	while (map[siz + 1])
 		siz++;
-	len = ft_strlen(map[0]);
+	len = ft_strlen(map[0]) - 1;
 	while (map[i])
 	{
 		j = 0;
@@ -102,7 +102,7 @@ int	mandatory_char_checker(char **map, int i, int j)
 		}
 		i++;
 	}
-	if (player != '1' || exit != '1' || coin < 1)
+	if (player != 1 || exit != 1 || coin < 1)
 		return (1);
 	return (0);
 }
