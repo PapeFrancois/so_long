@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 10:37:01 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:34:11 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int		strlen_wo_newline(char *str);
 char	*strcpy_wo_newline(char *dst, const char *src);
 char	**file_manager(char *arg, char **map);
 int		parsing_manager(char **map);
+int		valid_path_checker(char **map);
+void	malloc_failure(char **map, int i, int fd, char *str);
+void	free_table(char **table);
 void	graphic();
 
 #endif

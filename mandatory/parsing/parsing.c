@@ -6,11 +6,11 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:52:32 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 10:58:55 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:36:18 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	forbidden_char_checker(char **map)
 {
@@ -116,6 +116,8 @@ int	parsing_manager(char **map)
 	if (wall_surrounded_checker(map) == 1)
 		return (1);
 	if (mandatory_char_checker(map, 0, 0) == 1)
+		return (1);
+	if (valid_path_checker(map) == 1)
 		return (1);
 	return (0);
 }

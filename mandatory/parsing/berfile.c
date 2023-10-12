@@ -6,11 +6,11 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:58:21 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 10:48:33 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:31:41 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	ber_check(char *a)
 {
@@ -56,8 +56,10 @@ void	malloc_failure(char **map, int i, int fd, char *str)
 		i--;
 	}
 	free(map);
-	free(str);
-	close(fd);
+	if (str)
+		free(str);
+	if (fd != -1)
+		close(fd);
 	exit(0);
 }
 

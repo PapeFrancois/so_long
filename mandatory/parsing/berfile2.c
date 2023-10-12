@@ -6,11 +6,11 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:02:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/11 13:15:36 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 11:06:10 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../so_long.h"
 
 int	strlen_wo_newline(char *str)
 {
