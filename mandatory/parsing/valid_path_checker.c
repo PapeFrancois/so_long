@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:05:56 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 12:37:43 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:43:16 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	**duplicate_map(char **map)
 {
 	char	**temp_map;
 	int		i;
-	
+
 	i = 0;
 	while (map[i])
 		i++;
@@ -86,7 +86,7 @@ char	**duplicate_map(char **map)
 		temp_map[i] = ft_strdup(map[i]);
 		if (!temp_map[i])
 		{
-			free(map);
+			free_table(map);
 			malloc_failure(temp_map, i - 1, -1, NULL);
 		}
 		i++;
