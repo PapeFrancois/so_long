@@ -10,7 +10,8 @@ SRCS =			so_long.c \
 				parsing.c \
 				valid_path_checker.c \
 				game_manager.c \
-				graphics.c
+				graphics.c \
+				events.c \
 
 
 ###### VARIABLES ####################################
