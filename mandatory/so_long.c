@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:48:22 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 10:58:40 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:52:45 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int	main(int argc, char **argv)
 	if (!map)
 		return (0);
 	if (parsing_manager(map) == 1)
-		ft_printf("error: the map's format is incorrect\n");
+		ft_printf("error: the map's format is incorrect or unplayable\n");
 	else
-		graphic();
+		game_manager(map);
 	free_table(map);
 	return (0);
 }

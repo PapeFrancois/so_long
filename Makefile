@@ -9,7 +9,8 @@ SRCS =			so_long.c \
 				get_next_line_utils.c \
 				parsing.c \
 				valid_path_checker.c \
-				graphic.c
+				game_manager.c \
+				graphics.c
 
 
 ###### VARIABLES ####################################
@@ -19,7 +20,7 @@ CC = 			cc
 
 CFLAGS = 		-Wall -Wextra -Werror
 
-VPATH = 		mandatory/:mandatory/parsing:utils/get_next_line/
+VPATH = 		mandatory/:mandatory/parsing/:mandatory/game/:utils/get_next_line/
 
 OBJ_DIR = 		obj_files
 
