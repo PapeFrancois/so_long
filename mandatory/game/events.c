@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:32:37 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 15:04:58 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:22:26 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,17 @@ int	close_window(t_game *game)
 
 int	keypress(int keycode, t_game *game)
 {
-	if (keycode == 65307)
+	if (keycode == ESC)
 		close_window(game);
+	if (keycode == RIGHT)
+		right();
+	if (keycode == LEFT)
+		left();
+	if (keycode == UP)
+		up();
+	if (keycode == DOWN)
+		down();
+	printf("keycode = %d\n", keycode);
 	return (0);
 }
 
@@ -37,5 +46,5 @@ void	event_manager(t_game game, t_img img)
 {
 	game.img = img;
 	mlx_hook(game.mlx_win, 17, 0L, &close_window, &game);
-	mlx_hook(game.mlx_win, 2, 1L<<0, &keypress, &game);
+	mlx_hook(game.mlx_win, 2, 1L << 0, &keypress, &game);
 }

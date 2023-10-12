@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 14:44:15 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:22:21 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,12 @@ typedef struct s_game {
 	char	**map;
 	t_img	img;
 }	t_game;
+
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define ESC 65307
 
 int		strlen_wo_newline(char *str);
 char	*strcpy_wo_newline(char *dst, const char *src);
