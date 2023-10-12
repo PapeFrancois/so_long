@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:32:37 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 15:22:26 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:44:46 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,21 @@ int	keypress(int keycode, t_game *game)
 	if (keycode == ESC)
 		close_window(game);
 	if (keycode == RIGHT)
-		right();
+		game = right(game);
 	if (keycode == LEFT)
-		left();
+		game = left(game);
 	if (keycode == UP)
-		up();
+		game = up(game);
 	if (keycode == DOWN)
-		down();
-	printf("keycode = %d\n", keycode);
+		game = down(game);
+	print_map(*game, game->img);
 	return (0);
 }
 
-void	event_manager(t_game game, t_img img)
+t_game	event_manager(t_game game, t_img img)
 {
 	game.img = img;
 	mlx_hook(game.mlx_win, 17, 0L, &close_window, &game);
 	mlx_hook(game.mlx_win, 2, 1L << 0, &keypress, &game);
+	return (game);
 }

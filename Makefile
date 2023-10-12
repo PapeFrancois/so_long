@@ -12,6 +12,7 @@ SRCS =			so_long.c \
 				game_manager.c \
 				graphics.c \
 				events.c \
+				movement.c
 
 
 ###### VARIABLES ####################################

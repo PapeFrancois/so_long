@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 15:22:21 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/12 17:37:47 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_game {
 	int		y;
 	char	**map;
 	t_img	img;
+	int		exit;
+	int		nofmovements;
 }	t_game;
 
 # define UP 65362
@@ -57,6 +59,10 @@ void	game_manager(char **map);
 void	map_dimension_finder(char **map, int *i, int *j);
 t_img	img_creator(t_game game);
 void	print_map(t_game game, t_img img);
-void	event_manager(t_game game, t_img img);
+t_game	event_manager(t_game game, t_img img);
+t_game	*up(t_game *game);
+t_game	*down(t_game *game);
+t_game	*right(t_game *game);
+t_game	*left(t_game *game);
 
 #endif
