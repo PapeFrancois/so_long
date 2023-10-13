@@ -2,17 +2,29 @@
 ###### SOURCES ######################################
 
 
-SRCS =			so_long.c \
-				berfile.c \
+SRCS =			berfile.c \
 				berfile2.c \
+				events.c \
+				game_manager.c \
 				get_next_line.c \
 				get_next_line_utils.c \
-				parsing.c \
-				valid_path_checker.c \
-				game_manager.c \
 				graphics.c \
-				events.c \
-				movement.c
+				movement.c \
+				parsing.c \
+				so_long.c \
+				valid_path_checker.c
+
+SRCS_BONUS =	berfile_bonus.c \
+				berfile2_bonus.c \
+				events_bonus.c \
+				game_manager_bonus.c \
+				get_next_line.c \
+				get_next_line_utils.c \
+				graphics_bonus.c \
+				movement_bonus.c \
+				parsing_bonus.c \
+				so_long_bonus.c \
+				valid_path_checker_bonus.c
 
 
 ###### VARIABLES ####################################
@@ -22,11 +34,13 @@ CC = 			cc
 
 CFLAGS = 		-Wall -Wextra -Werror
 
-VPATH = 		mandatory/:mandatory/parsing/:mandatory/game/:utils/get_next_line/
+VPATH = 		mandatory/:mandatory/parsing/:mandatory/game/:bonus/:bonus/parsing/:bonus/game/:utils/get_next_line/
 
 OBJ_DIR = 		obj_files
 
 OBJS = 			$(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.c=.o)))
+
+OBJS_BONUS = 			$(addprefix $(OBJ_DIR)/, $(notdir $(SRCS_BONUS:.c=.o)))
 
 LIBFT = 		utils/libft/libft.a
 
@@ -64,4 +78,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re mlx
+bonus: $(OBJ_DIR) $(LIBFT) $(OBJS_BONUS)
+	$(CC) $(OBJS_BONUS) $(LIBFT) -L./minilibx-linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+
+.PHONY: all clean fclean re bonus mlx
