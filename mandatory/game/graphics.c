@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:07:40 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 10:49:39 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:57:26 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,24 @@ t_img	img_creator(t_game game)
 	return (img);
 }
 
+void	put_image(t_game g, t_img img, int i, int j)
+{
+	if (g.map[i][j] == '0')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.empty, j * 64, i * 64);
+	if (g.map[i][j] == '1')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.wall, j * 64, i * 64);
+	if (g.map[i][j] == 'P')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.player, j * 64, i * 64);
+	if (g.map[i][j] == 'E')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.exit, j * 64, i * 64);
+	if (g.map[i][j] == 'C')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.coin, j * 64, i * 64);
+	if (g.map[i][j] == 'F')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.ennemy, j * 64, i * 64);
+	if (g.map[i][j] == 'Y')
+		mlx_put_image_to_window(g.mlx, g.mlx_win, img.exit2, j * 64, i * 64);
+}
+
 void	print_map(t_game game, t_img img)
 {
 	int	i;
@@ -51,21 +69,7 @@ void	print_map(t_game game, t_img img)
 		j = 0;
 		while (game.map[i][j])
 		{
-			if (game.map[i][j] == '0')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.empty, j * 64, i * 64);
-			if (game.map[i][j] == '1')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.wall, j * 64, i * 64);
-			if (game.map[i][j] == 'P')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.player, j * 64, i * 64);
-			if (game.map[i][j] == 'E')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.exit, j * 64, i * 64);
-			if (game.map[i][j] == 'C')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.coin, j * 64, i * 64);
-			if (game.map[i][j] == 'F')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.ennemy, j * 64, i * 64);
-			if (game.map[i][j] == 'Y')
-				mlx_put_image_to_window(game.mlx, game.mlx_win, img.exit2, j * 64, i * 64);
-		
+			put_image(game, img, i, j);
 			j++;
 		}
 		i++;

@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 11:05:56 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 10:29:59 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:54:31 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,17 @@ int	max(char **map, int trigger_i)
 void	valid_path_finder(char **map, int i, int j)
 {
 	map[i][j] = 'V';
-	if (map[i][j + 1] != '1' && map[i][j + 1] != 'V' && map[i][j + 1] != 'F' && j < max(map, 0))
+	if (map[i][j + 1] != '1' && map[i][j + 1] != 'V'
+		&& map[i][j + 1] != 'F' && j < max(map, 0))
 		valid_path_finder(map, i, j + 1);
-	if (map[i + 1][j] != '1' && map[i + 1][j] != 'V' && map[i + 1][j] != 'F' && i < max(map, 1))
+	if (map[i + 1][j] != '1' && map[i + 1][j] != 'V'
+		&& map[i + 1][j] != 'F' && i < max(map, 1))
 		valid_path_finder(map, i + 1, j);
-	if (map[i][j - 1] != '1' && map[i][j - 1] != 'V' && map[i][j - 1] != 'F' && j > 0)
+	if (map[i][j - 1] != '1' && map[i][j - 1] != 'V'
+		&& map[i][j - 1] != 'F' && j > 0)
 		valid_path_finder(map, i, j - 1);
-	if (map[i - 1][j] != '1' && map[i - 1][j] != 'V' && map[i - 1][j] != 'F' && i > 0)
+	if (map[i - 1][j] != '1' && map[i - 1][j] != 'V'
+		&& map[i - 1][j] != 'F' && i > 0)
 		valid_path_finder(map, i - 1, j);
 }
 

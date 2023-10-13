@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 13:52:32 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 10:28:31 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:54:08 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	forbidden_char_checker(char **map)
 		while (map[i][j])
 		{
 			c = map[i][j];
-			if (c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C' && c != 'F')
+			if (c != '0' && c != '1' && c != 'P' && c != 'E' && c != 'C'
+				&& c != 'F')
 				return (1);
 			j++;
 		}
