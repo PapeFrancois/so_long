@@ -50,7 +50,7 @@ NAME = 			so_long
 ###### RULES #######################################
 
 
-all: mlx $(OBJ_DIR) $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR):
 	mkdir $(OBJ_DIR)
@@ -64,9 +64,6 @@ $(LIBFT):
 $(OBJ_DIR)/%.o: %.c
 	$(CC) $(CFLAGS) -I/usr/include -I./minilibx-linux/ -c $< -o $@
 
-mlx:
-	cd minilibx-linux && make
-
 clean:
 	rm -rf $(OBJ_DIR)
 	cd utils/libft && make clean
@@ -78,7 +75,9 @@ fclean: clean
 
 re: fclean all
 
-bonus: mlx $(OBJ_DIR) $(LIBFT) $(OBJS_BONUS)
+bonus: $(OBJ_DIR) $(LIBFT) $(OBJS_BONUS)
 	$(CC) $(OBJS_BONUS) $(LIBFT) -L./minilibx-linux -lmlx -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
 
 .PHONY: all clean fclean re bonus mlx
+
+# penser a make la mlx a part
