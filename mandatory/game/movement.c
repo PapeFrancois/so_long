@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 16:22:29 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 11:42:31 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:40:24 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ t_game	*up(t_game *game)
 			game->exit = 1;
 		if (game->map[i - 1][j] == 'Y')
 			close_window(game);
-		if (game->map[i - 1][j] == 'F')
-			close_window(game);
 		game->map[i][j] = '0';
 	}
 	game->map[i - 1][j] = 'P';
@@ -77,8 +75,6 @@ t_game	*down(t_game *game)
 		if (game->map[i + 1][j] == 'E')
 			game->exit = 1;
 		if (game->map[i + 1][j] == 'Y')
-			close_window(game);
-		if (game->map[i + 1][j] == 'F')
 			close_window(game);
 		game->map[i][j] = '0';
 	}
@@ -107,8 +103,6 @@ t_game	*left(t_game *game)
 			game->exit = 1;
 		if (game->map[i][j - 1] == 'Y')
 			close_window(game);
-		if (game->map[i][j - 1] == 'F')
-			close_window(game);
 		game->map[i][j] = '0';
 	}
 	game->map[i][j - 1] = 'P';
@@ -135,8 +129,6 @@ t_game	*right(t_game *game)
 		if (game->map[i][j + 1] == 'E')
 			game->exit = 1;
 		if (game->map[i][j + 1] == 'Y')
-			close_window(game);
-		if (game->map[i][j + 1] == 'F')
 			close_window(game);
 		game->map[i][j] = '0';
 	}

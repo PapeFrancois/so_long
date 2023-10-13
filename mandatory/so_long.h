@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:42:54 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 12:15:41 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:39:55 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_img {
 	void	*coin;
 	void	*exit;
 	void	*exit2;
-	void	*ennemy;
 }	t_img;
 
 typedef struct s_game {
