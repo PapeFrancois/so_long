@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:07:40 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 10:57:26 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:24:35 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_img	img_creator(t_game game)
 	img.player = mlx_xpm_file_to_image(game.mlx, "assets/sprite2.xpm", &w, &h);
 	img.coin = mlx_xpm_file_to_image(game.mlx, "assets/coin.xpm", &w, &h);
 	img.exit = mlx_xpm_file_to_image(game.mlx, "assets/exit.xpm", &w, &h);
-	img.exit2 = mlx_xpm_file_to_image(game.mlx, "assets/sprite1.xpm", &w, &h);
+	img.exit2 = mlx_xpm_file_to_image(game.mlx, "assets/exit2.xpm", &w, &h);
 	img.ennemy = mlx_xpm_file_to_image(game.mlx, "assets/ennemy.xpm", &w, &h);
 	return (img);
 }
