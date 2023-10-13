@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:32:37 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/13 10:50:51 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 12:23:34 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ void	open_exit(char **map)
 
 int	keypress(int keycode, t_game *game)
 {
+	char	*str;
+
 	if (keycode == ESC)
 		close_window(game);
 	if (keycode == RIGHT)
@@ -82,6 +84,12 @@ int	keypress(int keycode, t_game *game)
 	if (collectible_left(game->map) == 0)
 		open_exit(game->map);
 	print_map(*game, game->img);
+	str = ft_itoa(game->nofmovements);
+	if (str)
+	{
+		mlx_string_put(game->mlx, game->mlx_win, 10, 15, 0x0FAE1, str);
+		free(str);
+	}
 	return (0);
 }
 
