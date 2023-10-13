@@ -6,7 +6,7 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:32:37 by hepompid          #+#    #+#             */
-/*   Updated: 2023/10/12 17:44:46 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:50:51 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,55 @@ int	close_window(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->img.coin);
 	mlx_destroy_image(game->mlx, game->img.exit);
+	mlx_destroy_image(game->mlx, game->img.exit2);
 	mlx_destroy_image(game->mlx, game->img.empty);
 	mlx_destroy_image(game->mlx, game->img.player);
 	mlx_destroy_image(game->mlx, game->img.wall);
+	mlx_destroy_image(game->mlx, game->img.ennemy);
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free_table(game->map);
 	exit(0);
+}
+
+int	collectible_left(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'C')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+void	open_exit(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] == 'E')
+				map[i][j] = 'Y';
+			j++;
+		}
+		i++;
+	}
 }
 
 int	keypress(int keycode, t_game *game)
@@ -38,6 +79,8 @@ int	keypress(int keycode, t_game *game)
 		game = up(game);
 	if (keycode == DOWN)
 		game = down(game);
+	if (collectible_left(game->map) == 0)
+		open_exit(game->map);
 	print_map(*game, game->img);
 	return (0);
 }
