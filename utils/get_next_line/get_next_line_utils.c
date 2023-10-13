@@ -6,42 +6,11 @@
 /*   By: hepompid <hepompid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 10:04:30 by hepompid          #+#    #+#             */
-/*   Updated: 2023/09/06 12:28:31 by hepompid         ###   ########.fr       */
+/*   Updated: 2023/10/13 13:12:34 by hepompid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-char	*ft_strdup(const char *s)
-{
-	int		i;
-	char	*ptr;
-
-	i = 0;
-	while (s[i])
-		i++;
-	ptr = malloc((i + 1) * sizeof(char));
-	if (!ptr)
-		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		ptr[i] = s[i];
-		i++;
-	}
-	ptr[i] = '\0';
-	return (ptr);
-}
 
 char	*ft_strjoin_free(char const *s1, char const *s2)
 {
